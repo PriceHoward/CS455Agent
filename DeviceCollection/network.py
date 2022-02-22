@@ -15,6 +15,8 @@ data = []
 s = socket.socket()
 s.connect((IPADDR, PORT))
 s.send(f"{fileName}{SEPARATOR}{fileSize}".encode())
+
+#This is a temporary Progress bar. Remove before final product.
 progress = tqdm.tqdm(range(fileSize), f"Sending {fileName}", unit="B", unit_scale=True, unit_divisor=1024)
 
 with open(fileName, "rb") as f:
@@ -28,7 +30,7 @@ with open(fileName, "rb") as f:
         # busy networks
         s.sendall(bytes_read)
         # update the progress bar
-        progress.update(len(bytes_read))
+        progress.update(len(bytes_read)) # Once again this is temporary.
 # close the socket
 s.close()
 
