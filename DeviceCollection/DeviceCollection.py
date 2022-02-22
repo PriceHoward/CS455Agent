@@ -44,7 +44,6 @@ def main():
     memoryStats = memoryusage()
     networkStats = networkusage()
     fileCreation(cpuStats, diskStats, memoryStats, networkStats)
-    #readmeCreation()
 
 
 main()
