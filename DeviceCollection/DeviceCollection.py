@@ -38,18 +38,6 @@ def fileCreation(cpuStats, diskStats, memoryStats, networkStats):
         json_file.close()
 
 
-"""def readmeCreation():
-    # Building a README to be sent with the json File.
-    with open("../Json Files/README.txt", 'w') as read:
-        read.write("What is in the json File?\nThe first line is the CPU usage over 15 minutes of being used.\n")
-        read.write("The second line is the Disk usage split as: Total Disk, Used Disk, Free Disk, Percentage used.\n")
-        read.write("The third line is Memory Usage slit as: Total Memory, Availabale Memory, Percent Used, Used, Free, "
-                   "Active, Inactive, Wired.\nThe fourth line is Network Usage split as: Bytes_Sent, Bytes_Recieved,"
-                   "Packets_Sent, Packets_Recieved, Errin, Errout, Dropin, Dropout\n")
-        read.close()
-"""
-
-
 def main():
     cpuStats = cpuusage()
     diskStats = diskusage()
