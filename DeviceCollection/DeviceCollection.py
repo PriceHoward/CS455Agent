@@ -42,13 +42,16 @@ def fileCreation(cpuStats, diskStats, memoryStats, networkStats):
 def main():
     #If statements are going to be used to see which system we are on.
     # Will be useful if we need to create an executable.
-    if sys.system() == 'Windows':
+    system = sys.platform
+    if system == 'win32' or system == 'win64':
+        print("System is: " + system)
         cpuStats = cpuusage()
         diskStats = diskusage()
         memoryStats = memoryusage()
         networkStats = networkusage()
         fileCreation(cpuStats, diskStats, memoryStats, networkStats)
-    elif sys.system() == 'Linux': 
+    elif system == 'Linux':
+        print("System is: " + system)
         cpuStats = cpuusage()
         diskStats = diskusage()
         memoryStats = memoryusage()
