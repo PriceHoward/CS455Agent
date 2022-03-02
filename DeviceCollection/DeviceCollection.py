@@ -1,6 +1,7 @@
 import os
 import psutil
 import json
+import sys
 
 
 # Collects the total disk, used disk, and free disk.
@@ -39,11 +40,20 @@ def fileCreation(cpuStats, diskStats, memoryStats, networkStats):
 
 
 def main():
-    cpuStats = cpuusage()
-    diskStats = diskusage()
-    memoryStats = memoryusage()
-    networkStats = networkusage()
-    fileCreation(cpuStats, diskStats, memoryStats, networkStats)
+    #If statements are going to be used to see which system we are on.
+    # Will be useful if we need to create an executable.
+    if sys.system() == 'Windows':
+        cpuStats = cpuusage()
+        diskStats = diskusage()
+        memoryStats = memoryusage()
+        networkStats = networkusage()
+        fileCreation(cpuStats, diskStats, memoryStats, networkStats)
+    elif sys.system() == 'Linux': 
+        cpuStats = cpuusage()
+        diskStats = diskusage()
+        memoryStats = memoryusage()
+        networkStats = networkusage()
+        fileCreation(cpuStats, diskStats, memoryStats, networkStats)
 
 
 main()
