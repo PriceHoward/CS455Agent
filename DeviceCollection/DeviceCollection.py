@@ -1,5 +1,6 @@
 from os import cpu_count
 from textwrap import indent
+from turtle import end_fill
 from psutil import disk_usage, getloadavg, virtual_memory, net_io_counters
 import json
 import sys
@@ -25,30 +26,21 @@ def networkusage():
     network_usage = (net_io_counters().bytes_recv - net_io_counters().bytes_sent) / 100
     return network_usage
 
-# Input everything into a file as a json.
-def fileCreation(cpuStats, diskStats, memoryStats, networkStats):
-    with open('agent.json', 'w') as json_file:
-        json.dump({'CPU' : round(cpuStats)}, json_file)
-        json_file.write("\n")
-        json.dump({'DISK' : round(diskStats)}, json_file)
-        json_file.write("\n")
-        json.dump({'MEMORY' : round(memoryStats)}, json_file)
-        json_file.write("\n")
-        json.dump({'NETWORK' : round(networkStats)}, json_file)
-        json_file.close()
-
-
+def jsonCreation(cpuStats, diskStats, memoryStats, networkStats):
+        dataString = {
+            "CPU": cpuStats,
+            "DISK": diskStats,
+            "MEMORY": memoryStats,
+            "NETWORK": networkStats
+        }
+        print(json.dumps(dataString))
+        
 def main():
     cpuStats = cpuusage()
     diskStats = diskusage()
     memoryStats = memoryusage()
     networkStats = networkusage()
-    fileCreation(cpuStats, diskStats, memoryStats, networkStats)
-    cpuStats = cpuusage()
-    diskStats = diskusage()
-    memoryStats = memoryusage()
-    networkStats = networkusage()
-    fileCreation(cpuStats, diskStats, memoryStats, networkStats)
+    jsonCreation(cpuStats, diskStats, memoryStats, networkStats)
 
 
 main()
