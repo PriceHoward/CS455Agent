@@ -22,8 +22,9 @@ def memoryusage():
     return memory_usage[2]
 
 # Return system-wide network I/O statistics as a named tuple.
+#TODO Rework the networkUsage to allow to find a percentage.
 def networkusage():
-    network_usage = (net_io_counters().bytes_recv - net_io_counters().bytes_sent) / 100
+    network_usage = (net_io_counters().bytes_recv - net_io_counters().bytes_sent) / 100000000
     return network_usage
 
 def jsonCreation(cpuStats, diskStats, memoryStats, networkStats):
