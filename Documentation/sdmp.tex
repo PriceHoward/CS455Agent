@@ -1,0 +1,418 @@
+% CS 455, SP'22 Software development management plan
+%
+\documentclass[letterpaper,12pt,oneside,listof=totoc]{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{
+    bookmarks=false,                                 % show bookmarks bar
+    pdftitle={Software Development Management Plan}, % title
+%    pdfauthor={Yiannis Lazarides},                   % author
+%    pdfsubject={TeX and LaTeX},                      % subject of the document
+%    pdfkeywords={TeX, LaTeX, graphics, images},      % list of keywords
+    colorlinks=true,                                 % false: boxed links; true: colored links
+    linkcolor=blue,                                  % color of internal links
+    citecolor=black,                                 % color of links to bibliography
+    filecolor=black,                                 % color of file links
+    urlcolor=purple,                                 % color of external links
+    linktoc=page                                     % only page is linked
+}%
+\def\myversion{1.0 }
+
+\date{\today}
+\author{} % suppress warning, do not fill this in
+\begin{document}
+
+% we don't use \maketitle because we overide the default title page here
+\begin{titlepage}
+\flushright
+\rule{\textwidth}{5pt}\vskip1cm
+\Huge{SOFTWARE DEVELOPMENT MANAGEMENT PLAN}\\
+\vspace{1.5cm}
+for\\
+\vspace{1.5cm}
+Materials Ordering System\\
+\vspace{1.5cm}
+\LARGE{Release 1.0\\}
+\vspace{1.5cm}
+\LARGE{Version \myversion approved\\}
+\vspace{1.5cm}
+Prepared by Agents Team\\
+\vfill
+\rule{\textwidth}{5pt}
+\end{titlepage}
+
+\tableofcontents
+% this will be automatically created from chapters, sections, and subsections
+
+
+
+\listoftables
+% this will be automatically created from the table environment
+
+\chapter*{Revision History}
+% Update this table for each revision of the requirements
+% Add the new content followed by a \hline
+Table~\ref{table:1}  Shows the changes that are made to this document with dates and description. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{| c | p{0.60\textwidth} | p{0.30\textwidth} |}
+\hline
+Date     & Description   & Revised by \\
+\hline
+02/16/22 & Initial draft & Agent Team \\
+\hline
+02/21/22 & Rough draft & Agent Team \\
+\hline
+02/23/22 & Refine Rough draft & Agent Team \\
+\hline
+03/01/22 & Revised SDMP & Agent Team\\
+\hline
+03/02/22 & Revised SDMP & Agent Team\\
+\hline
+\end{tabular}
+\caption{Revision History Table}
+\label{table:1}
+\end{table}
+
+\chapter{Introduction}
+
+\section{Purpose}
+% what is the purpose of this document?
+The purpose of this document is to describe team's processes and management structure. SDMP also explicitly show the rules and requirements for the agent, and to define the outline of the schedule. As well as declare all of the acronyms, project overview, Software overview, quality assurance guidelines, testing guidelines, risk management.
+
+
+\section{Acronyms}
+% define any uncommon acronyms you use in this document
+Table~\ref{Acronyms} describes acronyms that's in this document (Agent SDMP).
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{| c | p{0.70\textwidth} |} 
+\hline
+Acronyms & Explication\\
+
+\hline
+IP & Internet Protocol\\
+\hline
+MS & Microsoft \\
+\hline
+SMDP & Software Development Management Plan\\
+\hline
+TCP & Transmission Control Protocol\\
+\hline
+VS & Visual Studio\\
+\hline
+\end{tabular}
+\caption{Acronyms and Abbreviations}
+\label{Acronyms}
+\end{table}
+
+\section{Terms and Definitions}
+% define any uncommon terms
+Local Host - The name of the home IP address of the device using it.\newline
+Socket - is one endpoint of a two-way communication link between two programs running on the network.\newline
+
+
+\section{References \& Standards}
+% list (table?) of the applicable standards and relevant references
+
+Table~\ref{Ref&Std} describes the references and standards that applies to the Agent.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|  p{0.40\textwidth} | p{0.60\textwidth} |} 
+
+\hline
+TCP Protocol Standard &       http://www.sis.pitt.edu/mbsclass/standards /viar/TCP-IP.html \\
+\hline
+Python OS Module & https://docs.python.org/3/library/os.html\\
+\hline
+Python psutil Module& https://pypi.org/project/psutil/\\
+\hline
+Python Json Module & https://docs.python.org/3/library/json.html\\
+\hline
+Python Socket Module& https://docs.python.org/3/library/socket. html\\
+\hline
+Python tqdm Module& https://tqdm.github.io/\\
+\hline
+Python sys Module& https://docs.python.org/3/library/sys.html\\
+\hline
+
+
+
+\end{tabular}
+\caption{Revision History Table}
+\label{Ref&Std}
+\end{table}
+
+
+\chapter{Project Overview}
+% brief description of the whole project
+\indent  \indent The Agents will be available on both MS-Windows and Ubuntu Linux systems. When running the software, Agents it will collect data of CPU usage, memory usage, disk usage, and service applications that are currently running. Those data will be send to a monitor engine and get store in to a database. The end user will be allow to see those data report on a dashboard. \newline \newline
+\indent The Agent will access the data one the hardware if the computer we are working on. The data we will be looking for and accessing will be the CPU, disk, memory, and network. We plan to use Python and take advantage of the modules that Python has. As well as taking advantage of the data transfer modules to be able to send our information over either TCP or UDP to get the data to the next step.
+
+\section{Software Overview}
+% description of the software component this team is building
+The missions for Agents team will be: 
+\begin{itemize}
+\item  collecting data for CPU usage, memory usage, disk usage, and service applications. 
+\item Make sure the software can run on both MS-Windows and Ubuntu Linux system.
+\end{itemize}
+\newpage
+
+\section{Schedule}
+% planned schedule with activities including a nice chart、
+
+Table~\ref{Schedule} describes the software process schedule.
+
+\begin{table}[h!]
+\begin{tabular}{| c | p{0.70\textwidth} |}
+\hline
+Date     & Description    \\
+\hline
+02/16/2022 & Initial draft requirements documents  \\
+\hline
+02/23/2022 & Revised draft requirements documents  \\
+\hline
+03/02/2022 & Final requirements documents  \\
+\hline
+03/09/2022 & Initial design review  \\
+\hline
+03/16/2022 & Final design  \\
+\hline
+03/23/2022 & Test plan and prototype review  \\
+\hline
+04/06/2022 & Unit test results and prototype review  \\
+\hline
+04/13/2022 & Unit test results and prototype review  \\
+\hline
+04/20/2022 & Unit test results, prototype review, and begin integration testing  \\
+\hline
+03/27/2022 & Integration testing results and begin acceptance testing  \\
+\hline
+05/03/2022 & Deliver software, documentation, and team presentations  \\
+\hline
+\end{tabular}
+\caption{Schedule Table}
+\label{Schedule}
+\end{table}
+
+
+\section{Budget}
+% type N/A for this section - describes the budget forecast for the product
+N/A
+
+\section{Project Deliverables}
+% list (table?) of the items that will be produced by the team
+% for example, documents, manuals, databases, releases, etc.
+\begin{enumerate}
+\item SMDP
+\item JSON file
+\item An Executable of the Agent
+\item requirements document (srs)
+\item design document
+\item test plan (document)
+\item unit test results
+\item integration test results
+\item acceptance test results
+\item team meeting minutes
+\item team communications (chat, email, etc.)
+\item source code with required build files
+\item copy of source code repo
+\item copy of CM system data
+\item final presentation
+
+\end{enumerate}
+
+
+\chapter{Management Approach}
+% org chart describing the overall project
+
+\section{Organization and Responsibilities}
+% each subsection describes a role and their responsibilities
+% note - CM has a separate section
+
+\subsection{Software Team Lead} 
+Chong will be responsible for the overall quality of the Agents, and make sure everything is on track and follow the scheduled. 
+\subsection{Testing Lead}
+Price is the test lead that will ensure that a test plan is developed, all team members follow the test plan, and that all test results are properly recorded and tracked in CM.
+\subsection{Quality Lead}
+Price is the quality lead that will ensure the quality of the agent. This includes the making sure the Agent is running correctly without error, and meet all other requirements. 
+\subsection{Software Engineer} 
+Price is software engineer that will plan and decide for the software development process.
+\subsection{Test Engineer}
+Devin, Jatin will be test engineer that will follow the test plan and collect data/errors form the testing result. 
+\subsection{Software Quality Assurance Engineer}
+Devin, Jatin is the software quality assurance that will collect and document all errors/defects information, and trace the causes of each errors/defects. 
+\section{Software Risk Management}
+% list risks to the project and
+% describe how the project will identify, track, and mitigate risks
+List of risk or failure
+\begin{enumerate}
+\item Process Risks 
+    \begin{itemize}
+        \item Miss understanding requirements
+        \item Lack of communication between client
+        \item Lack of communication between members
+    \end{itemize}
+
+\item Programmatic Risks
+    \begin{itemize}
+        \item Schedule delay
+        \item Absent of team members
+    \end{itemize}
+    
+\item Technical Risks
+    \begin{itemize}
+        \item Wrong program module used
+        \item Incorrect data collected
+        \item Incorrect data delivery to engine
+        \item Data lost when delivery
+    \end{itemize}
+
+\end{enumerate}
+
+
+
+
+\section{Customer Communications}
+% describe how the project will communicate with stakeholders
+The client for this project is Dr.Jerkins. All formal communication between the client and the team, that are about the software requirements or other general questions will be done by via E-mail (jajerkins@una.edu) or in person (Raburn 242). 
+
+\section{Team Training}
+% list and describe any required training for team members
+% detail how required training will be documented and reported
+% for example, secure coding training or tools training
+Agent Team members will have training on how to use GitHub, and VS code. Training on review network protocol and modules. 
+
+
+\chapter{Technical Approach}
+% each section describes how the named item will be managed, tracked, documented, and reported
+
+\section{Development Process}
+% process used by the team to develop the software
+% including a coding standard and a secure coding standard
+% may also (should include) peer code reviews
+Peer code reviews(Section 6.1) by using GitHub. \newline
+TCP networking standards\newline
+
+
+
+
+
+\section{Development Tools}
+% software tools, for example IDE's, compilers, test tools, static analysis, version control, etc.
+\begin{enumerate}
+\item GitHub
+\item Python  (IDLE ver 3.9 64-bit)
+\item Overleaf (SRS, SDMP)
+\end{enumerate}
+
+
+\section{COTS \& FOSS Tools}
+% commercial-off-the-shelf (COTS) software used and open source software used in the product
+% note - these create risks
+
+N/A
+
+\section{Software Reuse}
+% describes any software that was previously produced by the team that is being reused in the product
+% note - these create risks
+There is no plan to reuse any software for this project. We will be writing this software all originally. We will only be using references to other software we have written.
+
+\section{Testing Process}
+Testing requirements: 
+\begin{enumerate}
+
+\item  Make sure data can be collect from both MS-Windows and Ubuntu Linux
+systems. 
+    \begin{itemize}
+    \item It will be done by running program in both system and fixing errors. To do this we will use a Linux OS called Raspbian to test it. For MS-Windows we will use a Windows 10 System to test it.
+    \end{itemize}
+    
+\item  Make sure the correct data from the system is being collected. 
+    \begin{itemize}
+    \item To do this we will have the system manager on the screen to see if we are receiving the same data.
+    \end{itemize}
+    
+\item  Data must sent over local host. 
+    \begin{itemize}
+    \item Test using Netcat commands over local host.
+    \end{itemize}
+    
+\item  Data must sent over open network. 
+    \begin{itemize}
+    \item Test using Netcat commands over the internet.
+    \end{itemize}
+
+\end{enumerate}
+
+\chapter{Configuration Management}
+% describe how configuration management will work in the project 
+Configuration management will be done by using Git. 
+
+\section{CM Responsibilities}
+% detail who is responsible for each aspect of CM
+All members are responsible to document all the decision that are made. 
+
+\section{CM Resources}
+% list the tools used for CM, for example software used to track and report CIs
+\begin{enumerate} 
+\item Email (communication)
+\item Discord (communication)
+\item Overleaf (SRS, SDMP)
+\item GitHub (Files)
+\item Face-to-face communication between members
+\end{enumerate}
+
+\section{Change Control Procedures}
+% describe the process for managing changes to the software product
+Version control will be done using GitHub. Our repository will be added onto GitHub for easier access of all members. Any push request will be review by all member for approval.
+
+
+\section{Change Management}
+
+Table~\ref{ChangeM} describes the changes that are made to the work product. Include date, time and tools that are used. 
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{| c | p{0.20\textwidth}| p{0.40\textwidth}| p{0.30\textwidth} |}
+\hline
+Date     & Timestamp & Tools  & Item change \\
+\hline
+02/16/22 & 19:00 - 20:00 & Discord, Overleaf & SDMP \\
+\hline
+02/21/22 & 19:30 - 20:30 & Discord, Overleaf & SDMP \\
+\hline
+02/23/22 & 19:30 - 20:00 & Discord, Overleaf & SDMP \\
+\hline
+03/01/22 & 20:30 - 21:35 & Discord, Overleaf & SDMP \\
+\hline
+\end{tabular}
+\caption{Change Management Table}
+\label{ChangeM}
+\end{table}
+
+
+
+\chapter{Verification \& Validation}
+% describe how the team will know the product is complete (detail acceptance criteria)
+We will Verify and Validate that the product is complete once we meet with the engine group and our data is sent to them with full security and correctness of the data.
+
+\section{V\&V Procedures}
+% describes the verification and validation procedures
+\begin{enumerate} 
+\item Peer Code Reviews - Prior to any code being committed a peer code review must be completed. The peer code review will by done by using GitHub, all push request must be review and approve by all members, and be documented in a code review report stored in CM. Any deficiencies in the reviewed code will be remediated by using version control to create a new version, and a second review scheduled.
+\item Test Connections and data delivery through Netcat.
+\item Validate the data is correct by checking computer hardware when available.
+\item Acceptance test result(\#3) send to client for approve.
+\end{enumerate}
+
+\section{Independent V\&V}
+% type N/A for this section - used when an independent group performs V&V in addition to the team's V&V
+N/A
+
+
+\end{document}
