@@ -1,11 +1,11 @@
 from os import cpu_count
+from os.path import exists
 from psutil import disk_usage, getloadavg, virtual_memory, net_io_counters, cpu_percent
-import json
+from json import dumps
 from uuid import uuid4
 import time
-import socket
+from socket import socket, AF_INET, SOCK_STREAM
 import logging
-from datetime import datetime
 
 
     # Gets the CPU usage of the machine in the previous 15 minutes.
@@ -40,7 +40,7 @@ def ConnectToServerSend(data):
     if data:
         for i in range(0,3):
             try:
-                sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                sock = socket(AF_INET, SOCK_STREAM)
                 sock.connect((_host, _port))
                 sock.sendall(data.encode('utf-8'))
                 time.sleep(5)
@@ -68,11 +68,24 @@ def jsonCreation(cpuStats, diskStats, memoryStats, networkStats, customID, timeS
                 "BYTES RECEIVED":  networkStats[1]
             }
         }
-        jsonData = json.dumps(dataString)     
+        jsonData = dumps(dataString)     
         return jsonData
     
+def checkForUUID():
+    if exists('uuid.txt'):
+        with open('uuid.txt', 'r') as file:
+            for readline in file:
+                return readline.strip()
+        file.close()
+    else:
+        customID = str(uuid4())
+        file = open('uuid.txt', 'w')
+        file.write(customID)
+        file.close()
+        return customID
+ 
 def main():
-    customID = str(uuid4())
+    customID = checkForUUID()
     shutdown = True
     while True:
         if shutdown == True:
