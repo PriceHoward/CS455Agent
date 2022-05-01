@@ -7,7 +7,7 @@ import time
 from socket import socket, AF_INET, SOCK_STREAM
 import logging
 
-
+logging.getLogger().setLevel(logging.INFO)
     # Gets the CPU usage of the machine in the previous 15 minutes.
 def cpuusage():
     load1, load5, load15 = getloadavg()
@@ -86,6 +86,7 @@ def checkForUUID():
  
 def main():
     customID = checkForUUID()
+    logging.info("Your system's ID is: " + customID)
     shutdown = True
     while True:
         if shutdown == True:
